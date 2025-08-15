@@ -13,13 +13,13 @@ const OAuthLogin = () => {
   // OAuth Configuration - Replace with your actual client IDs
   const oauthConfigs = {
     google: {
-      clientId: 'YOUR_GOOGLE_CLIENT_ID',
+      clientId: 'http://171049260289-dnivmevimqvglvfb5g4thaukljj59lhv.apps.googleusercontent.com',
       redirectUri: `${window.location.origin}/auth/callback`,
       scope: 'openid email profile',
       authUrl: 'https://accounts.google.com/o/oauth2/v2/auth'
     },
     microsoft: {
-      clientId: 'YOUR_MICROSOFT_CLIENT_ID',
+      clientId: 'fba905a6-713b-4d95-92bc-240602bbd599',
       redirectUri: `${window.location.origin}/auth/callback`,
       scope: 'openid email profile User.Read',
       authUrl: 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize'
