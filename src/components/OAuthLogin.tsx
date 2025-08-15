@@ -13,7 +13,7 @@ const OAuthLogin = () => {
   // OAuth Configuration - Replace with your actual client IDs
   const oauthConfigs = {
     google: {
-      clientId: '171049260289-dnivmevimqvglvfb5g4thaukljj59lhv.apps.googleusercontent.com',
+      clientId: 'https://171049260289-dnivmevimqvglvfb5g4thaukljj59lhv.apps.googleusercontent.com',
       redirectUri: `${window.location.origin}/auth/callback`,
       scope: 'openid email profile',
       authUrl: 'https://accounts.google.com/o/oauth2/v2/auth'
