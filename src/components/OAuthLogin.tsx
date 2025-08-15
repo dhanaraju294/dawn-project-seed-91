@@ -266,13 +266,7 @@ const OAuthLogin = () => {
         {primaryProviders.map((provider) => (
           <Button
             key={provider.key}
-            onClick={() => {
-              if (provider.key === 'microsoft') {
-                handleMicrosoftLogin();
-              } else {
-                handleOAuthLogin(provider.key);
-              }
-            }}
+            onClick={() => handleOAuthLogin(provider.key)}
             variant="outline"
             className="w-full h-11 bg-primary text-primary-foreground border-0 hover:bg-primary-glow transition-smooth transform hover:scale-[1.02]"
           >
