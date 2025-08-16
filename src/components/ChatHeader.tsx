@@ -37,7 +37,11 @@ export function ChatHeader({ onShowCollaboration }: ChatHeaderProps) {
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1),transparent_50%)]"></div>
       
       {/* Logo and title - centered */}
-      <div className="flex items-center gap-4 z-10 animate-pulse-glow">
+      <div 
+        className="flex items-center gap-4 z-10 animate-pulse-glow cursor-pointer transition-all duration-300 hover:scale-105"
+        onClick={() => navigate("/")}
+        title="Go to homepage"
+      >
         <div className="relative">
           <img 
             src="/lovable-uploads/1bf84a47-9c08-48e8-b0d1-d11e67d43217.png" 

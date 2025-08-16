@@ -15,6 +15,10 @@ interface ChatMessageProps {
 export function ChatMessage({ role, content, timestamp, hasChart }: ChatMessageProps) {
   const isUser = role === "user";
   const [showShareDialog, setShowShareDialog] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isDisliked, setIsDisliked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isStarred, setIsStarred] = useState(false);
 
   return (
     <div className={`flex gap-4 ${isUser ? "flex-row-reverse" : "flex-row"} mb-6`}>
@@ -100,21 +104,39 @@ export function ChatMessage({ role, content, timestamp, hasChart }: ChatMessageP
             <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
               <Volume2 className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className={`h-8 w-8 p-0 ${isLiked ? 'text-green-500 hover:text-green-600' : 'text-muted-foreground hover:text-foreground'}`}
+              onClick={() => setIsLiked(!isLiked)}
+              title="Like message"
+            >
               <ThumbsUp className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className={`h-8 w-8 p-0 ${isDisliked ? 'text-red-500 hover:text-red-600' : 'text-muted-foreground hover:text-foreground'}`}
+              onClick={() => setIsDisliked(!isDisliked)}
+              title="Dislike message"
+            >
               <ThumbsDown className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className={`h-8 w-8 p-0 ${isBookmarked ? 'text-blue-500 hover:text-blue-600' : 'text-muted-foreground hover:text-foreground'}`}
+              onClick={() => setIsBookmarked(!isBookmarked)}
+              title="Bookmark message"
+            >
               <Bookmark className="h-4 w-4" />
             </Button>
             <Button 
               variant="ghost" 
               size="sm" 
-              className="h-8 w-8 p-0 text-primary hover:text-primary-glow" 
-              onClick={() => setShowShareDialog(true)}
-              title="Share with collaborators"
+              className={`h-8 w-8 p-0 ${isStarred ? 'text-yellow-500 hover:text-yellow-600' : 'text-primary hover:text-primary-glow'}`}
+              onClick={() => setIsStarred(!isStarred)}
+              title="Star message"
             >
               <Star className="h-4 w-4" />
             </Button>
