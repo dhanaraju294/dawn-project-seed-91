@@ -956,7 +956,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
         {/* Header */}
         <header className="bg-slate-800 text-white p-4 flex items-center justify-between">
           <button className="flex items-center space-x-3 focus:outline-none"
-              onClick={() => setCurrentView('home')}
+              onClick={onLogout}
               style={{ background: 'none', border: 'none', padding: 0, margin: 0, cursor: 'pointer' }}
               aria-label="Go to Home">
             <div className="flex items-center space-x-3">
