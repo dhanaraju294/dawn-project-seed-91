@@ -1,73 +1,215 @@
-# Welcome to your Lovable project
+# AIVA Web Application
 
-## Project info
+A comprehensive React web application for the AIVA (Alyasra Intelligent Virtual Assistant) platform, featuring AI-powered conversations with Microsoft Fabric Data Agent integration.
 
-**URL**: https://lovable.dev/projects/f03a4c3d-9361-4a90-a140-e0a66021d165
+## 🏗️ Architecture
 
-## How can I edit this code?
+### **Built with:**
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Lucide React** for icons
 
-There are several ways of editing your application.
+### **Key Features:**
 
-**Use Lovable**
+## 🧠 **Microsoft Fabric Integration**
+- **Natural Language Queries**: Ask business questions in plain English
+- **Data Visualization**: Interactive charts and graphs
+- **Real-time Insights**: Live data from your enterprise systems
+- **Query Intelligence**: Smart query type detection (SQL vs DAX)
+- **Performance Optimization**: Cached results and optimized queries
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f03a4c3d-9361-4a90-a140-e0a66021d165) and start prompting.
+## 💬 **Advanced Chat System**
+- **AI-Powered Conversations**: Azure OpenAI integration
+- **Rich Message Types**: Text, images, files, data results
+- **Message Actions**: Like, bookmark, share messages
+- **Chat History**: Persistent conversation storage
+- **Search Functionality**: Global and chat-specific search
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🔐 **Security & Authentication**
+- **Multi-Provider OAuth**: Google, Microsoft, Yahoo authentication
+- **Secure Session Management**: JWT-based authentication
+- **Data Protection**: Secure API communication
 
-**Use your preferred IDE**
+## 📊 **Data Management**
+- **Database Connections**: Connect to multiple database types
+- **Workspace Organization**: Organize chats by projects
+- **File Management**: Upload, download, and share files
+- **Search Capabilities**: Advanced search across all content
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 **Getting Started**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### **Prerequisites**
+- Node.js 18+
+- npm or yarn
 
-Follow these steps:
+### **Installation**
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Navigate to web app directory**
+   ```bash
+   cd web-app
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Environment Configuration**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update `.env` with your configuration:
+   ```env
+   VITE_API_BASE_URL=http://localhost:3000/api
+   VITE_GOOGLE_CLIENT_ID=your-google-client-id
+   VITE_MICROSOFT_CLIENT_ID=your-microsoft-client-id
+   VITE_YAHOO_CLIENT_ID=your-yahoo-client-id
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## 🎨 **UI/UX Features**
+
+### **Design System**
+- **Responsive Design**: Works on all screen sizes
+- **Dark/Light Themes**: Automatic theme detection
+- **Smooth Animations**: Custom CSS animations
+- **Micro-interactions**: Hover states and transitions
+- **Accessibility**: WCAG compliant design
+
+### **Components**
+- **HomePage**: Landing page with feature showcase
+- **LoginPage**: Authentication with OAuth options
+- **SignUpPage**: User registration
+- **Dashboard**: Main application interface
+- **DataQueryPanel**: Enterprise data exploration
+- **WorkspacesPage**: Project organization
+
+## 🔧 **Development**
+
+### **Project Structure**
+```
+web-app/
+├── src/
+│   ├── components/          # React components
+│   ├── utils/              # Utility functions
+│   └── index.css           # Global styles
+├── public/                 # Static assets
+├── index.html             # HTML template
+├── vite.config.ts         # Vite configuration
+└── package.json           # Dependencies
+```
+
+### **Available Scripts**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🌐 **Deployment**
+
+### **Static Hosting**
+The web app builds to static files and can be deployed to:
+- **Netlify**
+- **Vercel**
+- **Azure Static Web Apps**
+- **AWS S3 + CloudFront**
+- **GitHub Pages**
+
+### **Build Configuration**
+```bash
+# Build for production
+npm run build
+
+# Preview build locally
+npm run preview
+```
+
+## 🔧 **Configuration**
+
+### **Environment Variables**
+- `VITE_API_BASE_URL`: Backend API URL
+- `VITE_GOOGLE_CLIENT_ID`: Google OAuth client ID
+- `VITE_MICROSOFT_CLIENT_ID`: Microsoft OAuth client ID
+- `VITE_YAHOO_CLIENT_ID`: Yahoo OAuth client ID
+
+### **Vite Configuration**
+- Optimized for React development
+- Fast HMR (Hot Module Replacement)
+- Optimized production builds
+
+## 🧪 **Testing**
+
+### **Development Testing**
+```bash
+# Run in development mode
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### **Production Testing**
+```bash
+# Build and preview
+npm run build
+npm run preview
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📊 **Performance**
 
-**Use GitHub Codespaces**
+### **Optimization Features**
+- **Code Splitting**: Automatic route-based splitting
+- **Tree Shaking**: Removes unused code
+- **Asset Optimization**: Optimized images and fonts
+- **Lazy Loading**: Components loaded on demand
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### **Bundle Analysis**
+```bash
+# Analyze bundle size
+npm run build -- --analyze
+```
 
-## What technologies are used for this project?
+## 🔍 **Troubleshooting**
 
-This project is built with:
+### **Common Issues**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+#### **API Connection Issues**
+- Verify `VITE_API_BASE_URL` is correct
+- Ensure backend server is running
+- Check CORS configuration
 
-## How can I deploy this project?
+#### **OAuth Issues**
+- Verify OAuth client IDs are correct
+- Check redirect URIs in OAuth providers
+- Ensure popup blockers are disabled
 
-Simply open [Lovable](https://lovable.dev/projects/f03a4c3d-9361-4a90-a140-e0a66021d165) and click on Share -> Publish.
+#### **Build Issues**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🤝 **Contributing**
 
-Yes, you can!
+1. Fork the repository
+2. Create a feature branch
+3. Make changes with proper testing
+4. Submit a pull request
+5. Follow React and TypeScript best practices
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 **License**
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License.
+
+---
+
+**AIVA Web App** - Empowering web-based productivity with AI-driven insights and enterprise data integration.
