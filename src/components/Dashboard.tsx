@@ -864,7 +864,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
       {currentView === 'chat' && (
         <div className="h-screen bg-slate-100 flex">
       {/* Sidebar */}
-      <div className={`bg-slate-800 text-white transition-all duration-300 ${sidebarOpen ? 'w-64' : 'w-16'} flex flex-col`}>
+      <div className={`bg-slate-800 text-white transition-all duration-300 ${sidebarOpen ? 'w-64' : 'w-16'} flex flex-col h-screen fixed left-0 top-0 z-10`}>
         {/* Sidebar Header */}
         <div className="p-4 border-b border-slate-700">
           <div className="flex items-center justify-between">
@@ -878,7 +878,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
         </div>
 
         {/* Navigation Items */}
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           <div 
             onClick={() => setCurrentView('about')}
             className="flex items-center space-x-3 p-3 hover:bg-slate-700 rounded-lg cursor-pointer transition-colors"
@@ -952,7 +952,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className={`flex-1 flex flex-col ${sidebarOpen ? 'ml-64' : 'ml-16'}`}>
         {/* Header */}
         <header className="bg-slate-800 text-white p-4 flex items-center justify-between">
           <button className="flex items-center space-x-3 focus:outline-none"
