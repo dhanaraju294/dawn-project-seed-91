@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Zap, Users, ArrowRight, Link } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface HomePageProps {
   onNavigateToLogin: () => void;

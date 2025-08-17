@@ -28,7 +28,6 @@ import {
   Send,
   Mic,
   Plus,
-  ChevronDown,
   UserPlus,
   RefreshCw,
   Users,
@@ -40,7 +39,7 @@ import {
   Share2,
   Mail
 } from 'lucide-react';
-import { Database, BarChart3, Table } from 'lucide-react';
+import { Database } from 'lucide-react';
 
 interface DashboardProps {
   onLogout: () => void;
@@ -60,7 +59,6 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
       timestamp: '3:42:31 PM'
     }
   ]);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [attachmentModalOpen, setAttachmentModalOpen] = useState(false);
   const [downloadModalOpen, setDownloadModalOpen] = useState(false);
@@ -77,12 +75,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
     bookmarked: boolean;
   }}>({});
   const [copyingMessageId, setCopyingMessageId] = useState<string | null>(null);
-  
-  // Data-related state
-  const [availableDatasets, setAvailableDatasets] = useState<any[]>([]);
-  const [selectedDataset, setSelectedDataset] = useState<string | null>(null);
   const [useDataAgent, setUseDataAgent] = useState(false);
-  const [dataQueryResults, setDataQueryResults] = useState<any>(null);
 
   // Chat history state
   const [chatHistory, setChatHistory] = useState<Array<{
@@ -359,7 +352,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
         setIsListening(true);
       };
       
-      recognitionInstance.onresult = (event) => {
+      recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
         const transcript = event.results[0][0].transcript;
         setMessage(transcript);
         setIsListening(false);
@@ -373,7 +366,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
         }, 500); // Small delay to show the transcribed text briefly
       };
       
-      recognitionInstance.onerror = (event) => {
+      recognitionInstance.onerror = (event: SpeechRecognitionErrorEvent) => {
         console.error('Speech recognition error:', event.error);
         setIsListening(false);
       };
@@ -842,7 +835,6 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
           onBack={() => setCurrentView('chat')} 
           chatHistory={chatHistory}
           onLoadChat={loadChatFromHistory}
-          onNavigateToMessage={navigateToMessage}
         />
       )}
       
@@ -858,7 +850,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
       )}
       
       {currentView === 'home' && (
-        <HomePage />
+        <HomePage 
+          onNavigateToLogin={() => {}}
+          onNavigateToSignUp={() => {}}
+        />
       )}
       
       {currentView === 'chat' && (
@@ -1152,25 +1147,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onLogout, onSwitchAccount }) => {
                       }`}>
                         <p>{msg.text}</p>
                       </div>
-                      
-                      {/* Data Results Display */}
-                      {!msg.isUser && msg.dataResult && (
-                        <div className="mt-4 mr-12">
-                          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                            <div className="flex items-center space-x-2 mb-2">
-                              <BarChart3 className="w-4 h-4 text-blue-600" />
-                              <span className="text-sm font-medium text-blue-800">Data Insights</span>
-                            </div>
-                            <div className="text-xs text-blue-600">
-                              {msg.dataResult.rowCount} rows • {msg.dataResult.executionTime}ms • {msg.dataResult.queryType?.toUpperCase()}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      
-                      {/* Message Actions - only for AI messages */}
-                      {!msg.isUser && (
-                        <div className={`flex items-center space-x-2 ${msg.isUser ? 'justify-end' : ''}`}>
+                       
+                       {/* Message Actions - only for AI messages */}
+                       {!msg.isUser && (
+                         <div className={`flex items-center space-x-2 ${msg.isUser ? 'justify-end' : ''}`}>
                           <button 
                             onClick={() => handleCopyMessage(msg.id, msg.text)}
                             className={`p-2 rounded transition-all duration-300 ${

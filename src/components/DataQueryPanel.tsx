@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Database, Play, BarChart3, Table, Download, Copy } from 'lucide-react';
+import { X, Database, Play, Copy } from 'lucide-react';
 
 interface DataQueryPanelProps {
   onClose: () => void;

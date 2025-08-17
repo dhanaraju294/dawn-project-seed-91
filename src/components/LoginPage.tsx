@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Eye, EyeOff, Mail, Lock, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, Loader2 } from 'lucide-react';
 import { handleGoogleLogin, handleMicrosoftLogin, handleYahooLogin, createOAuthPopup } from '../utils/auth';
 
 interface LoginPageProps {
