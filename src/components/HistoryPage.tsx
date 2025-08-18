@@ -14,9 +14,10 @@ interface HistoryPageProps {
   onBack: () => void;
   chatHistory: ChatHistory[];
   onLoadChat: (chatId: string) => void;
+  onNavigateToMessage: (messageId: string) => void;
 }
 
-const HistoryPage: React.FC<HistoryPageProps> = ({ onBack, chatHistory, onLoadChat }) => {
+const HistoryPage: React.FC<HistoryPageProps> = ({ onBack, chatHistory, onLoadChat, onNavigateToMessage }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   // Filter chat history based on search term
@@ -99,6 +100,11 @@ const HistoryPage: React.FC<HistoryPageProps> = ({ onBack, chatHistory, onLoadCh
                   className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors cursor-pointer border-l-4 border-purple-500"
                   onClick={() => {
                     onLoadChat(chat.id);
+                    // If there are messages in this chat, navigate to the last message
+                    if (chat.messages && chat.messages.length > 0) {
+                      const lastMessage = chat.messages[chat.messages.length - 1];
+                      setTimeout(() => onNavigateToMessage(lastMessage.id), 100);
+                    }
                   }}
                 >
                   <div className="flex items-start justify-between mb-3">

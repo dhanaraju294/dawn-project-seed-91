@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
@@ -8,6 +8,7 @@ type Page = 'home' | 'login' | 'signup' | 'dashboard';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [user, setUser] = useState<any>(null);
 
   const navigateToLogin = () => {
     setCurrentPage('login');
@@ -19,9 +20,11 @@ function App() {
 
   const navigateToHome = () => {
     setCurrentPage('home');
+    setUser(null);
   };
 
-  const navigateToDashboard = () => {
+  const navigateToDashboard = (userData: any) => {
+    setUser(userData);
     setCurrentPage('dashboard');
   };
 
